@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
+import com.bonsaimanager.common.frontend.RestPreconditions;
 import com.google.common.base.Preconditions;
 import com.google.common.collect.Lists;
 

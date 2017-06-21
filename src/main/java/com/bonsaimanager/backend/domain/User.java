@@ -14,11 +14,12 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
-import org.hibernate.validator.constraints.Length;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -66,34 +67,6 @@ public class User implements Serializable, UserDetails{
 	@Column(unique = true)
 	private String email;
 	
-	@Length(max = 50)
-	private String name;
-	
-	@Column(name = "first_surname")
-	@Length(max = 50)
-	private String firstSurname;
-	
-	@Column(name = "second_surname")
-	@Length(max = 50)
-	private String secondSurname;
-	
-	@Column(name = "phone_number")
-	private String phoneNumber;
-	
-	@Length(max = 500)
-	private String description;
-	
-	private String country;
-	
-	@Length(max = 50)
-	private String city;
-	
-	@Length(max = 100)
-	private String address;
-
-	@Column(name = "profile_image")
-	private String profileImage;
-	
 	@NotNull
 	@Column(nullable = false)
 	private boolean enabled;
@@ -107,9 +80,6 @@ public class User implements Serializable, UserDetails{
 	@Convert(converter = LocalDateTimeAttributeConverter.class)
 	private LocalDateTime registrationDate;
 	
-	@Column(name = "birth_date")
-	@Convert(converter = LocalDateTimeAttributeConverter.class)
-	private LocalDateTime birthDate;
 	
 	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	private Set<UserRole> userRoles = new HashSet<>();
@@ -117,16 +87,12 @@ public class User implements Serializable, UserDetails{
 	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	private Set<UserInteractsBonsai> userInteractsBonsai = new HashSet<>();
 	
+	@OneToOne(fetch=FetchType.LAZY)
+	@JoinColumn(name="user_information_id")
+	private UserInformation userInformation;
+	
 	public User(){
 		
-	}
-
-	public LocalDateTime getBirthDate() {
-		return birthDate;
-	}
-
-	public void setBirthDate(LocalDateTime birthDate) {
-		this.birthDate = birthDate;
 	}
 
 	@Override
@@ -182,54 +148,6 @@ public class User implements Serializable, UserDetails{
 		this.email = email;
 	}
 
-	public String getPhoneNumber() {
-		return phoneNumber;
-	}
-
-	public void setPhoneNumber(String phoneNumber) {
-		this.phoneNumber = phoneNumber;
-	}
-
-	public String getDescription() {
-		return description;
-	}
-
-	public void setDescription(String description) {
-		this.description = description;
-	}
-
-	public String getCountry() {
-		return country;
-	}
-
-	public void setCountry(String country) {
-		this.country = country;
-	}
-
-	public String getCity() {
-		return city;
-	}
-
-	public void setCity(String city) {
-		this.city = city;
-	}
-
-	public String getAddress() {
-		return address;
-	}
-
-	public void setAddress(String address) {
-		this.address = address;
-	}
-
-	public String getProfileImage() {
-		return profileImage;
-	}
-
-	public void setProfileImage(String profileImage) {
-		this.profileImage = profileImage;
-	}
-
 	public boolean isVisible() {
 		return visible;
 	}
@@ -272,36 +190,12 @@ public class User implements Serializable, UserDetails{
 		return user.id == this.id;
 	}
 
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
 	public LocalDateTime getRegistrationDate() {
 		return registrationDate;
 	}
 
 	public void setRegistrationDate(LocalDateTime registrationDate) {
 		this.registrationDate = registrationDate;
-	}
-
-	public String getFirstSurname() {
-		return firstSurname;
-	}
-
-	public void setFirstSurname(String firstSurname) {
-		this.firstSurname = firstSurname;
-	}
-
-	public String getSecondSurname() {
-		return secondSurname;
-	}
-
-	public void setSecondSurname(String secondSurname) {
-		this.secondSurname = secondSurname;
 	}
 
 	public Set<UserRole> getUserRoles() {

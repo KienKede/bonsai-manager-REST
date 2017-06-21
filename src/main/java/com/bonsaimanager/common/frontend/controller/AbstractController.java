@@ -2,6 +2,8 @@ package com.bonsaimanager.common.frontend.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
+import com.bonsaimanager.common.frontend.RestPreconditions;
+
 public abstract class AbstractController<T extends IEntity> extends AbstractReadOnlyController<T> {
 
     @Autowired
