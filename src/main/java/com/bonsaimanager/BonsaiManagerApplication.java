@@ -1,4 +1,4 @@
-package com.bonsaimanager.bonsaimanager;
+package com.bonsaimanager;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
