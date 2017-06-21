@@ -12,9 +12,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import com.bonsaimanager.backend.domain.Role;
-import com.bonsaimanager.backend.domain.UserRole;
-import com.bonsaimanager.enums.RolesEnum;
+import com.bonsaimanager.enums.PrivilegesEnum;
 
 /*
  * Role Domain Class - 25/01/2017
