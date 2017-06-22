@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
 import com.bonsaimanager.common.frontend.RestPreconditions;
+import com.bonsaimanager.common.frontend.exceptions.MyResourceNotFoundException;
+import com.bonsaimanager.common.persistence.model.IEntity;
 import com.google.common.base.Preconditions;
 import com.google.common.collect.Lists;
 
