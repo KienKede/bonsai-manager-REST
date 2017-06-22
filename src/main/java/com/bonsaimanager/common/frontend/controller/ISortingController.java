@@ -4,6 +4,8 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
+import com.bonsaimanager.common.persistence.model.IEntity;
+
 public interface ISortingController<T extends IEntity> {
 
     public List<T> findAllPaginatedAndSorted(final int page, final int size, final String sortBy, final String sortOrder);

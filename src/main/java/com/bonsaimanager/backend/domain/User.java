@@ -25,27 +25,6 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import com.bonsaimanager.backend.converters.LocalDateTimeAttributeConverter;
 
-/*
- * User Domain Class - 25/01/2017
- * id 				- 	id from the user          
- * username 		- 	username of the user
- * password 		- 	password of the user
- * email 			- 	email of the user
- * name				- 	name of the user
- * firstSurname		-	first surname of the user
- * secondSurname	-	second surname of the user	
- * phoneNumber		- 	phone number of the user
- * description 		-	description of the user
- * country			- 	country of the user
- * city				- 	city of the user
- * address			- 	address of the user
- * registrationDate	-	date of the user registration
- * profileImage		- 	profile image of the users
- * enabled			- 	is account enabled
- * visible			- 	is account public
- * birthDate		-	birth date of the user
- * 
- */
 @Entity
 @Table(name = "user")
 public class User implements Serializable, UserDetails{
