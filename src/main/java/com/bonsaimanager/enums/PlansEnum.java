@@ -2,22 +2,22 @@ package com.bonsaimanager.enums;
 
 public enum PlansEnum {
 	
-	BASIC(1, "BASIC", "Basic Plan"),
-	PRO(2, "PRO", "Pro Plan");
+	BASIC(1L, "BASIC", "Basic Plan"),
+	PRO(2L, "PRO", "Pro Plan");
 
-	private final int id;
+	private final Long id;
 	
 	private final String planName;
 	
 	private final String planDescription;
 	
-	PlansEnum(int id, String planName, String planDescription){
+	PlansEnum(Long id, String planName, String planDescription){
 		this.id = id;
 		this.planName = planName;
 		this.planDescription = planDescription;
 	}
 	
-	public int getId(){
+	public Long getId(){
 		return id;
 	}
 	

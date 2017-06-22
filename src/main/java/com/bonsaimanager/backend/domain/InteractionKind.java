@@ -15,9 +15,11 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
+import com.bonsaimanager.common.persistence.model.IEntity;
+
 @Entity
 @Table(name = "interaction_kind")
-public class InteractionKind implements Serializable{
+public class InteractionKind implements Serializable, IEntity{
 
 	private static final long serialVersionUID = 1L;
 	
@@ -40,11 +42,11 @@ public class InteractionKind implements Serializable{
 	@OneToMany(mappedBy = "interactionKind", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	private Set<UserInteractsPot> userInteractsPot = new HashSet<>();
 	
-	public long getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(long id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 

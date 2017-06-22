@@ -13,6 +13,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import com.bonsaimanager.backend.domain.Role;
+import com.bonsaimanager.common.persistence.model.IEntity;
 
 /*
  * Role Domain Class - 25/01/2017
@@ -22,7 +23,7 @@ import com.bonsaimanager.backend.domain.Role;
  */
 @Entity
 @Table(name = "role_privilege")
-public class RolePrivilege implements Serializable{
+public class RolePrivilege implements Serializable, IEntity{
 
 	private static final long serialVersionUID = 1L;
 	
@@ -48,11 +49,11 @@ public class RolePrivilege implements Serializable{
 		this.privilege = privilege;
 	}
 
-	public long getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(long id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 

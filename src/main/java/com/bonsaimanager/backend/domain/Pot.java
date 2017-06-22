@@ -18,10 +18,11 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
 import com.bonsaimanager.backend.converters.LocalDateTimeAttributeConverter;
+import com.bonsaimanager.common.persistence.model.IEntity;
 
 @Entity
 @Table(name = "pot")
-public class Pot implements Serializable{
+public class Pot implements Serializable, IEntity{
 
 	private static final long serialVersionUID = 1L;
 	
@@ -48,11 +49,11 @@ public class Pot implements Serializable{
 	private Set<UserInteractsPot> userInteractsPot = new HashSet<>();
 
 
-	public long getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(long id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 

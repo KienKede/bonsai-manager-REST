@@ -15,10 +15,11 @@ import javax.validation.constraints.NotNull;
 import org.hibernate.validator.constraints.Length;
 
 import com.bonsaimanager.backend.converters.LocalDateTimeAttributeConverter;
+import com.bonsaimanager.common.persistence.model.INameableEntity;
 
 @Entity
 @Table(name = "user_information")
-public class UserInformation implements Serializable{
+public class UserInformation implements Serializable, INameableEntity{
 
 	private static final long serialVersionUID = 1L;
 	
@@ -76,11 +77,11 @@ public class UserInformation implements Serializable{
 		this.birthDate = birthDate;
 	}
 
-	public long getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(long id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 

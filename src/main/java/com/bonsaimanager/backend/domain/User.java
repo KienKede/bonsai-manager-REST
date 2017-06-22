@@ -24,10 +24,11 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import com.bonsaimanager.backend.converters.LocalDateTimeAttributeConverter;
+import com.bonsaimanager.common.persistence.model.IEntity;
 
 @Entity
 @Table(name = "user")
-public class User implements Serializable, UserDetails{
+public class User implements Serializable, UserDetails, IEntity{
 
 	private static final long serialVersionUID = 1L;
 	
@@ -111,11 +112,11 @@ public class User implements Serializable, UserDetails{
 		return enabled;
 	}
 
-	public long getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(long id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 

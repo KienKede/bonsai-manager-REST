@@ -12,9 +12,11 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.bonsaimanager.common.persistence.model.IEntity;
+
 @Entity
 @Table(name = "user_plan")
-public class UserPlan implements Serializable{
+public class UserPlan implements Serializable, IEntity{
 	
 	private static final long serialVersionUID = 1L;
 	
@@ -56,13 +58,12 @@ public class UserPlan implements Serializable{
 		this.plan = plan;
 	}
 
-	public long getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(long id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
-
 
 }

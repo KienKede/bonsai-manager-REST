@@ -2,23 +2,23 @@ package com.bonsaimanager.enums;
 
 public enum PrivilegesEnum {
 	
-	BASIC(1, "ROLE_BASIC", "Basic User Role"),
-	PRO(2, "ROLE_PRO", "Pro User Role"),
-	ADMIN(3, "ROLE_ADMIN", "Admin User Role");
+	BASIC(1L, "ROLE_BASIC", "Basic User Role"),
+	PRO(2L, "ROLE_PRO", "Pro User Role"),
+	ADMIN(3L, "ROLE_ADMIN", "Admin User Role");
 	
-	private final int id;
+	private final Long id;
 	
 	private final String roleName;
 	
 	private final String roleDescription;
 	
-	PrivilegesEnum(int id, String roleName, String roleDescription){
+	PrivilegesEnum(Long id, String roleName, String roleDescription){
 		this.id = id;
 		this.roleName = roleName;
 		this.roleDescription = roleDescription;
 	}
 	
-	public int getId(){
+	public Long getId(){
 		return id;
 	}
 	

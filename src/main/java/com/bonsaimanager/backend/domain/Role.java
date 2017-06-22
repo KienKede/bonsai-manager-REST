@@ -14,6 +14,7 @@ import javax.persistence.Table;
 
 import com.bonsaimanager.backend.domain.Role;
 import com.bonsaimanager.backend.domain.UserRole;
+import com.bonsaimanager.common.persistence.model.INameableEntity;
 import com.bonsaimanager.enums.RolesEnum;
 
 /*
@@ -24,13 +25,13 @@ import com.bonsaimanager.enums.RolesEnum;
  */
 @Entity
 @Table(name = "role")
-public class Role implements Serializable{
+public class Role implements Serializable, INameableEntity{
 
 	private static final long serialVersionUID = 1L;
 	
 	@Id
 	@Column(name = "role_id")
-	private int id;
+	private Long id;
 	
 	private String name;
 	
@@ -49,11 +50,11 @@ public class Role implements Serializable{
 		this.description = rolesEnum.getRoleDescription();
 	}
 
-	public int getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
@@ -63,27 +64,6 @@ public class Role implements Serializable{
 
 	public void setName(String name) {
 		this.name = name;
-	}
-
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + id;
-		result = prime * result + ((name == null) ? 0 : name.hashCode());
-		return result;
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Role role = (Role) obj;
-		return role.id == this.id;
 	}
 
 	public Set<UserRole> getUserRoles() {
@@ -101,5 +81,50 @@ public class Role implements Serializable{
 	public void setDescription(String description) {
 		this.description = description;
 	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((description == null) ? 0 : description.hashCode());
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		result = prime * result + ((name == null) ? 0 : name.hashCode());
+		result = prime * result + ((userRoles == null) ? 0 : userRoles.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Role other = (Role) obj;
+		if (description == null) {
+			if (other.description != null)
+				return false;
+		} else if (!description.equals(other.description))
+			return false;
+		if (id == null) {
+			if (other.id != null)
+				return false;
+		} else if (!id.equals(other.id))
+			return false;
+		if (name == null) {
+			if (other.name != null)
+				return false;
+		} else if (!name.equals(other.name))
+			return false;
+		if (userRoles == null) {
+			if (other.userRoles != null)
+				return false;
+		} else if (!userRoles.equals(other.userRoles))
+			return false;
+		return true;
+	}
+	
+	
 
 }

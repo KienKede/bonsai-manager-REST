@@ -17,6 +17,7 @@ import javax.persistence.OneToMany;
 import javax.validation.constraints.NotNull;
 
 import com.bonsaimanager.backend.converters.LocalDateTimeAttributeConverter;
+import com.bonsaimanager.common.persistence.model.IEntity;
 
 /*
  * Bonsai Domain Class - 29/01/2017
@@ -27,7 +28,7 @@ import com.bonsaimanager.backend.converters.LocalDateTimeAttributeConverter;
  * 
  */
 @Entity
-public class Bonsai implements Serializable{
+public class Bonsai implements Serializable, IEntity{
 
 	private static final long serialVersionUID = 1L;
 	
@@ -53,11 +54,11 @@ public class Bonsai implements Serializable{
 	@OneToMany(mappedBy = "bonsai", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	private Set<UserInteractsBonsai> userInteractsBonsai = new HashSet<>();
 
-	public long getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(long id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 

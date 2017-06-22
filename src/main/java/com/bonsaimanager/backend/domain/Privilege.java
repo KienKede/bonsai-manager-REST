@@ -12,6 +12,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.bonsaimanager.common.persistence.model.INameableEntity;
 import com.bonsaimanager.enums.PrivilegesEnum;
 
 /*
@@ -22,13 +23,13 @@ import com.bonsaimanager.enums.PrivilegesEnum;
  */
 @Entity
 @Table(name = "privilege")
-public class Privilege implements Serializable{
+public class Privilege implements Serializable, INameableEntity{
 
 	private static final long serialVersionUID = 1L;
 	
 	@Id
 	@Column(name = "privilege_id")
-	private long id;
+	private Long id;
 	
 	private String name;
 	
@@ -47,11 +48,11 @@ public class Privilege implements Serializable{
 		this.description = privilegesEnum.getRoleDescription();
 	}
 
-	public long getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(long id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 

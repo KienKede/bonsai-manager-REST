@@ -13,10 +13,14 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 
 import com.bonsaimanager.backend.converters.LocalDateTimeAttributeConverter;
+import com.bonsaimanager.common.persistence.model.IEntity;
 
 @Entity
-public class VerificationToken {
-    private static final int EXPIRATION = 60 * 24;
+public class VerificationToken implements IEntity {
+
+	private static final long serialVersionUID = 1L;
+
+	private static final int EXPIRATION = 60 * 24;
  
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

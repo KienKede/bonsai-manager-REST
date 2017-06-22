@@ -14,8 +14,8 @@ import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.baeldung.common.persistence.ServicePreconditions;
-import com.baeldung.common.persistence.model.IEntity;
+import com.bonsaimanager.common.persistence.ServicePreconditions;
+import com.bonsaimanager.common.persistence.model.IEntity;
 import com.google.common.base.Preconditions;
 import com.google.common.collect.Lists;
 
