@@ -35,7 +35,7 @@ public class Privilege implements Serializable, INameableEntity{
 	
 	private String description;
 
-	@OneToMany(mappedBy = "privilege", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@OneToMany(mappedBy = "privilege", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	private Set<RolePrivilege> rolePrivileges = new HashSet<>();
 	
 	public Privilege(){

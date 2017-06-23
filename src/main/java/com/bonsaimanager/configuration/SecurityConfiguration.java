@@ -12,7 +12,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 
 @Configuration
 @EnableWebSecurity
-@ComponentScan("com.baeldung.um.security")
+@ComponentScan("com.bonsaimanager.security")
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     @Autowired
