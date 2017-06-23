@@ -24,11 +24,11 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import com.bonsaimanager.backend.converters.LocalDateTimeAttributeConverter;
-import com.bonsaimanager.common.persistence.model.IEntity;
+import com.bonsaimanager.common.persistence.model.INameableEntity;
 
 @Entity
 @Table(name = "user")
-public class User implements Serializable, UserDetails, IEntity{
+public class User implements Serializable, UserDetails, INameableEntity{
 
 	private static final long serialVersionUID = 1L;
 	
@@ -38,7 +38,7 @@ public class User implements Serializable, UserDetails, IEntity{
 	private long id;
 	
 	@Column(unique = true)
-	private String username;
+	private String name;
 	
 	@NotNull
 	@Column(nullable = false)
@@ -88,8 +88,8 @@ public class User implements Serializable, UserDetails, IEntity{
 	}
 
 	@Override
-	public String getUsername() {
-		return username;
+	public String getName() {
+		return name;
 	}
 
 	@Override
@@ -136,8 +136,8 @@ public class User implements Serializable, UserDetails, IEntity{
 		this.visible = visible;
 	}
 
-	public void setUsername(String username) {
-		this.username = username;
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	public void setPassword(String password) {
@@ -153,7 +153,7 @@ public class User implements Serializable, UserDetails, IEntity{
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + (int) (id ^ (id >>> 32));
-		result = prime * result + ((username == null) ? 0 : username.hashCode());
+		result = prime * result + ((name == null) ? 0 : name.hashCode());
 		return result;
 	}
 
@@ -192,5 +192,10 @@ public class User implements Serializable, UserDetails, IEntity{
 
 	public void setUserInteractsBonsai(Set<UserInteractsBonsai> userInteractsBonsai) {
 		this.userInteractsBonsai = userInteractsBonsai;
+	}
+
+	@Override
+	public String getUsername() {
+		return name;
 	}
 }

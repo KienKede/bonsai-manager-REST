@@ -40,6 +40,9 @@ public class Role implements Serializable, INameableEntity{
 	@OneToMany(mappedBy = "role", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	private Set<UserRole> userRoles = new HashSet<>();
 	
+	@OneToMany(mappedBy = "role", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	private Set<RolePrivilege> rolePrivileges = new HashSet<>();
+	
 	public Role(){
 		
 	}
@@ -80,6 +83,14 @@ public class Role implements Serializable, INameableEntity{
 
 	public void setDescription(String description) {
 		this.description = description;
+	}
+
+	public Set<RolePrivilege> getRolePrivileges() {
+		return rolePrivileges;
+	}
+
+	public void setRolePrivileges(Set<RolePrivilege> rolePrivileges) {
+		this.rolePrivileges = rolePrivileges;
 	}
 
 	@Override
